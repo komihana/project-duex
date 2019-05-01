@@ -24,3 +24,4 @@ module.exports = function (sequelize, DataTypes) {
 
     return Investments;
 }
+
