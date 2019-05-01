@@ -14,6 +14,19 @@ module.exports = function (app) {
     })
 
     app.get("/results", function (req, res) {
-        res.render("results");
+        var investor_type = "Small Cap";
+        
+        //This is the key to assign the value of the results from the survey
+
+        //Based on the survey results we will match small cap, mid cap, or large cap investment
+
+        db.Investments.findAll({
+            where: {
+                growth_rate: investor_type
+            }
+        }).then(function (response) {
+            res.render("results", {product: response});
+        });
+
     })
 }
