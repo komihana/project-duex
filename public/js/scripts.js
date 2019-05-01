@@ -199,7 +199,7 @@ var survey = [{
 
         function checkContinue(){
             
-            if(file || fullname){
+            if(fullname){
             $(".continueSurvey").removeClass("disabled").addClass("ready");
             } else {
             $(".continueSurvey").removeClass("ready").addClass("disabled");
