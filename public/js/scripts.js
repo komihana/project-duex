@@ -152,77 +152,21 @@ var survey = [{
         });
 
     }
-    
-        // First register any plugins
-        $.fn.filepond.registerPlugin(FilePondPluginImagePreview);
-        $.fn.filepond.registerPlugin(FilePondPluginFileEncode);
-        $.fn.filepond.registerPlugin(FilePondPluginFileValidateSize);
 
-        $.fn.filepond.setDefaults({
-        maxFileSize: '3MB'
-        });
-    
-        // Turn input element into a pond
-        $('.filepond').filepond();
-
-        $('.filepond').filepond('allowFileEncode',true);
-    
-        // Set allowMultiple property to true
-        $('.filepond').filepond('allowMultiple', false);
-    
-        // Listen for addfile event
-        $('.filepond').on('FilePond:addfile', function(e) {
-            console.log('file added event', e);
-            $('input').blur();
-            //console.log(e.detail.file.getFileEncodeDataURL());
-            file = e.detail.file.getFileEncodeDataURL();
-            checkContinue();
-            
-        });
-        /*
-        // Manually add a file using the addfile method
-        $('.filepond').first().filepond('addFile', 'index.html').then(function(file){
-        console.log('file added', file);
-        });
-        */
-
-        $(".fullName").on("change",function(){
-        fullname = $(this).val();
-        if(fullname.length > 2){
-            $(this).removeClass("has-error");
-            checkContinue();
-        } else {
-            $(this).addClass("has-error");
-        }
+        $(document).ready(function() {
         
-        })
-
-        function checkContinue(){
-            
-            if(file || fullname){
-            $(".continueSurvey").removeClass("disabled").addClass("ready");
-            } else {
-            $(".continueSurvey").removeClass("ready").addClass("disabled");
-            }
-        }
-
-        $(".continueSurvey").on("click",function(){
-        if($(this).hasClass('ready')){
             $("#status").fadeIn();
             updateStatusBar(currentSurvey,$(".surveys").length);
             $(".surveys").eq(0).addClass("show");
             var ht =  $(".surveys:visible").height();
             $("#survey").css("height",ht+"px");
-            $(".aboutMe").addClass("filled");
-        }
-        return false;
         });
 
         function updateStatusBar(current,total){
         var currentNum = parseInt(current);
         var totalNum = parseInt(total);
         if(totalNum == currentNum){
-            $(".status-text").html(`Click 'Find a Match' below to get results!`);
+            $(".status-text").html(`Get Your Investor's Risk Rating!`);
             $("#survey").slideUp();
             $(".status-bar").fadeOut();
             $(".completeSurvey").removeClass("disabled").addClass("ready");
@@ -246,33 +190,47 @@ var survey = [{
         var submitted = false;
 
         $(".completeSurvey").on("click",function(){
-            var scores = surveyAnswers;
-            var photo = file;
-            var name = fullname;
-            var userData = { name, photo, scores };
+                console.log("SAVE CLICKED!");
+                var scores = surveyAnswers;
+                console.log(scores);
+               
+            });
+            
+            // function addNewInvestor(newInvestor) {
+            //     $.ajax({
+            //         method: "PUT",
+            //         url: `/api/investors`,
+            //         data: newInvestor
+            //     }).then(location.reload());
+            //     console.log("AJAX: POSTED THAT SHIT > INVESTOR ADDED")
+            // }
+           
+            // var scores = surveyAnswers;
+            // var photo = file;
+            // var name = fullname;
+            // var userData = { name, photo, scores };
 
-            if(submitted == false){
-            // AJAX post the data to the friends API.
-                $.post("/api/friends", userData, function(data) {
+            // if(submitted == false){
+            // // AJAX post the data to the friends API.
+            //     $.post("/api/investors", investor_type, function(data) {
 
-                    submitted = true;
-                    console.log(data);
-                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                    $("#match-name").text(data.name);
-                    $("#match-img").css({"background": "url("+data.photo+") center center no-repeat","background-size":"cover"});
-                    $(".search").html(`<a class="button ready" target="_blank" href="https://www.google.com/search?tbm=isch&q=${data.name}">Google your new friend!</a>`)
+            //         submitted = true;
+            //         console.log(data);
+            //         // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+            //         $("#match-name").text(data.name);
+            //         $("#match-img").css({"background": "url("+data.photo+") center center no-repeat","background-size":"cover"});
+            //         $(".search").html(`<a class="button ready" target="_blank" href="https://www.google.com/search?tbm=isch&q=${data.name}">Google your new friend!</a>`)
 
-                    // Show the modal with the best match
-                    $("#results-modal").modal("toggle");
+            //         // Show the modal with the best match
+            //         $("#results-modal").modal("toggle");
 
-                });
+            //     });
+        // else {
 
-            } else {
+        //         $("#results-modal").modal("toggle");
 
-                $("#results-modal").modal("toggle");
+        //     }
 
-            }
+        //     return false;
 
-            return false;
-
-        });
+        // });

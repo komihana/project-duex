@@ -20,7 +20,3 @@ function addNewInvestor(newInvestor) {
     }).then(location.reload());
     console.log("AJAX: POSTED THAT SHIT > INVESTOR ADDED")
 }
-
-$(".testing").click(function(){
-    console.log("THIS IS CLICKED!");
-});
