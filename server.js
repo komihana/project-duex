@@ -5,11 +5,12 @@ const app = express();
 
 const db = require("./models")
 
+let path = require('path')
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
-
-app.use(express.urlencoded({extended: true}));
+app.use('/static', express.static('public'));
+app.use('/node_modules', express.urlencoded({extended: true}));
 app.use(express.json());
 
 //handlebars

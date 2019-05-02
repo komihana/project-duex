@@ -200,6 +200,12 @@ $(".completeSurvey").on("click", function () {
     console.log(sumOfAnswers);
 
     
+    // <= 25
+
+    // >= 26 || <=37
+
+    // >= 38
+
 
 });
 
