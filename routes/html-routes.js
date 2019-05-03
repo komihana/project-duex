@@ -7,15 +7,19 @@ const Op = Sequelize.Op;
 module.exports = function (app) {
     app.get("/", function (req, res) {
         res.render("index");
-    })
+    });
 
     app.get("/survey", function (req, res) {
         res.render("survey");
-    })
+    });
+    app.get("/learn", function(req, res){
+        res.render("learn");
+    });
 
     app.get("/results", function (req, res) {
         var investor_type = "Small Cap";
         
+
         //This is the key to assign the value of the results from the survey
 
         //Based on the survey results we will match small cap, mid cap, or large cap investment

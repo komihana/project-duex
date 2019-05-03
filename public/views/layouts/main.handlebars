@@ -18,35 +18,15 @@
     
 
 
-    <title>Mind Stock</title>
+    <title>{{title}}</title>
 
 </head>
 
 <body>
-    <header class="header-section clearfix">
-        <div class="container-fluid">
-            <a href="index.html" class="site-logo">
-                <!-- <img src="img/logo.png" alt=""> -->
-            </a>
-            <div class="responsive-bar"><i class="fa fa-bars"></i></div>
-            <a href="" class="user"><i class="fa fa-user"></i></a>
-            <a href="" class="site-btn">Sign Up Free</a>
-            <nav class="main-menu">
-                <ul class="menu-list">
-                    <li><a href="">Solution</a></li>
-                    <li><a href="">Features</a></li>
-                    <li><a href="">News</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    {{{ body }}}
-    {{!-- Scripts --}}
+ {{>header}} {{{ body }}} {{>footer}}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="/static/js/scripts.js"></script>
     <script src="/static/js/index.js"></script>
@@ -55,3 +35,4 @@
 </body>
 
 </html>
+   
