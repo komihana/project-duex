@@ -15,6 +15,22 @@ module.exports = function (app) {
     });
 
 
+    app.put("/investors/:id", function (req, res) {
+      console.log('investor id ', req.params.id)
+      console.log(req.body)
+      db.Investor.update({ investor_type: req.body.investor_type },
+        {
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(function (dbPost) {
+          res.json(dbPost);
+        });
+    });
+
+
+
     // app.post("/api/investors/:id", function (req, res) {
     //   console.log("post method to add new investor to database");
 

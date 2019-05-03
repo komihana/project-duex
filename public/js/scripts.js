@@ -191,21 +191,31 @@ var submitted = false;
 
 $(".completeSurvey").on("click", function () {
     console.log("SAVE CLICKED!");
+    const id = JSON.parse(localStorage.getItem('userId')).id;
     let scores = surveyAnswers;
     var sumOfAnswers = 0;
+    var investorType = '';
     for (var i = 0; i < scores.length; i++) {
       sumOfAnswers += scores[i]
     }
+    if(sumOfAnswers >= 14 && sumOfAnswers <= 25){
+        investorType = "Small Cap"
+    }
+    else if(sumOfAnswers >= 26 && sumOfAnswers <= 37){
+        investorType = "Mid Cap"
+    }
+    else if(sumOfAnswers >= 28 && sumOfAnswers <= 48){
+        investorType = "large Cap"
+    } else{
+        console.log("err")
+    }
     console.log(sumOfAnswers);
-
-    
-    // <= 25
-
-    // >= 26 || <=37
-
-    // >= 38
-
-
+    // surveyResult();
+     $.ajax({
+         url: '/investors/' + id,
+         method: 'PUT',
+         data: {investor_type: investorType}
+     }).then(response => console.log('respoinse ', response))
 });
 
 
