@@ -167,7 +167,6 @@ function updateStatusBar(current, total) {
     var currentNum = parseInt(current);
     var totalNum = parseInt(total);
     if (totalNum == currentNum) {
-        $(".status-text").html(`Get Your Investor's Risk Rating!`);
         $("#survey").slideUp();
         $(".status-bar").fadeOut();
         $(".completeSurvey").removeClass("disabled").addClass("ready");
