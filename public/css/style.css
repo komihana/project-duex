@@ -1388,7 +1388,7 @@ ol {
   }
   .ticker-wrap {
 	width: 100%;
-	height: 5em;
+	height: 4em;
     padding-left: 100%;
 	background-color: black;
 	color: white;
@@ -1400,14 +1400,14 @@ ol {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-name: ticker;
-    animation-duration: 10s;
+    animation-duration: 90s;
   }
   .ticker-move:hover{
     animation-play-state: paused;
   }
   .ticker-item{
     display: inline-block;
-    padding: 0 5rem;
+    padding: .5rem 5rem;
   }
 
 
