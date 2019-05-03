@@ -25,6 +25,8 @@ h6 {
 	margin: 0;
 	font-weight: 500;
 	font-family: "Futura", sans-serif;
+	
+	
 }
 
 h1 {
@@ -138,7 +140,7 @@ ol {
 	text-align: center;
 	border: 2px solid #7ad4cc;
 	cursor: pointer;
-	color: #fff;
+	color: #20509e;
 }
 
 .site-btn:hover {
@@ -259,7 +261,7 @@ ol {
 	font-size: 16px;
 	padding: 10px 5px;
 	margin-right: 30px;
-	color: red;
+	color: #20509e;
 	
 }
 
