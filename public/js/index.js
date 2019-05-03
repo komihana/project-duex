@@ -22,15 +22,15 @@ function addNewInvestor(newInvestor) {
 }
 
 
-// function addNewInvestor(newInvestor) {
-//     $.ajax({
-//                 method: "POST",
-//                 url: `/api/investors`,
-//                 data: newInvestor
-//             }).then(function(response) {
-//                 // console.log('response: ', response)
-//                 localStorage.setItem('userId', JSON.stringify(response))
-//                 location.reload()
-//             });
-//             console.log("AJAX: POSTED THAT SHIT > INVESTOR ADDED")
-// }
+function addNewInvestor(newInvestor) {
+    $.ajax({
+                method: "POST",
+                url: `/api/investors`,
+                data: newInvestor
+            }).then(function(response) {
+                // console.log('response: ', response)
+                localStorage.setItem('userId', JSON.stringify(response))
+                // location.reload()
+            });
+            console.log("AJAX: POSTED THAT SHIT > INVESTOR ADDED")
+}
