@@ -199,13 +199,13 @@ $(".completeSurvey").on("click", function () {
       sumOfAnswers += scores[i]
     }
     if(sumOfAnswers >= 14 && sumOfAnswers <= 25){
-        investorType = "Small Cap"
+        investorType = "Large Capital"
     }
     else if(sumOfAnswers >= 26 && sumOfAnswers <= 37){
-        investorType = "Mid Cap"
+        investorType = "Mid Capital"
     }
     else if(sumOfAnswers >= 28 && sumOfAnswers <= 48){
-        investorType = "large Cap"
+        investorType = "Small Capital"
     } else{
         console.log("err")
     }
