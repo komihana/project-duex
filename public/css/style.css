@@ -28,6 +28,16 @@ h6 {
 	
 }
 
+#submit {
+	border: transparent;
+	size: 100px;
+	color: #20509e;
+	margin: 0;
+	font-weight: 500;
+	font-family: "Futura", sans-serif;
+	font-size: 20pt;
+background: transparent;	
+}
 h1 {
 	font-size: 70px;
 }

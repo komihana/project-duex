@@ -3,34 +3,33 @@
         <div class="row">
             <div class="col-md-6 hero-text">
                 <h2>Invest in <span>Your Future</span> <br>Mind-Stock</h2>
-                <h4>Don’t look further, here is the key</h4>
-                <div class="formContainer">
-                    <form>
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="John">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="emailAddress">Email address</label>
-                            <input type="email" class="form-control" id="eMail" aria-describedby="emailHelp"
-                                placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your personal
-                                information with anyone else.</small>
-                        </div>
-                        <a href="/survey" class="save-client">
-                            <h3>Submit</h3>
-                        </a>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img src="static/images/laptop.png" class="laptop-image" alt="">
+                <form action="survey">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">Email address</label>
+                        <input type="email" class="form-control" id="eMail" aria-describedby="emailHelp"
+                            placeholder="Enter email" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your personal
+                            information with anyone else.</small>
+                    </div>
+
+                    <input type="submit" class="save-client" id="submit" value="Submit">
+
+                </form>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <img src="static/images/laptop.png" class="laptop-image" alt="">
+        </div>
+    </div>
     </div>
 </section>
 
@@ -105,9 +104,8 @@
                     <div class="articleLister">
                     </div>
                 </div>
-            
+
             </div>
         </div>
     </div>
 </section>
-
