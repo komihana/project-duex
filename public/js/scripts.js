@@ -215,7 +215,7 @@ $(".completeSurvey").on("click", function () {
          url: '/investors/' + id,
          method: 'PUT',
          data: {investor_type: investorType}
-     }).then(response => console.log('respoinse ', response))
+     }).then(response => console.log('response ', response))
 });
 
 
