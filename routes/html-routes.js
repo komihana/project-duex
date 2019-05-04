@@ -17,7 +17,7 @@ module.exports = function (app) {
     });
 
     app.get("/results", function (req, res) {
-        var investor_type = "Small Cap";
+        var investorType = "Small-Capital";
         
 
         //This is the key to assign the value of the results from the survey
@@ -26,7 +26,7 @@ module.exports = function (app) {
 
         db.Investments.findAll({
             where: {
-                growth_rate: investor_type
+                growth_rate:investorType
             }
         }).then(function (response) {
             res.render("results", {product: response});

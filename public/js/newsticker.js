@@ -5,17 +5,6 @@ $(document).ready(function () {
     let newsArray = [];
 
 
-    var NewsArticle = function (author1, description1, title1, publishedAt1,url1) {
-        this.author = author1,
-            this.description = description1,
-            this.title = title1,
-            this.publishedAt = publishedAt1;
-            this.url = url1;
-        // console.log(this);
-        // return this;
-        
-    };
-
     
     $.get(newsUrl, function (data) {
 

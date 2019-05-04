@@ -14,7 +14,6 @@ module.exports = function (app) {
           });
     });
 
-
     app.put("/investors/:id", function (req, res) {
       console.log('investor id ', req.params.id)
       console.log(req.body)
