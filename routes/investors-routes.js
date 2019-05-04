@@ -30,25 +30,6 @@ module.exports = function (app) {
     });
 
 
-
-    // app.post("/api/investors/:id", function (req, res) {
-    //   console.log("post method to add new investor to database");
-
-    //   var newInvestorObj = {};
-    //   if (req.body.first_name) clientObj.first_name = req.body.first_name;
-    //   if (req.body.last_name) clientObj.last_name = req.body.last_name;
-    //   if (req.body.email) clientObj.email = req.body.email;
-  
-    //   db.Client.create(new, {
-    //       where: {
-    //         id: id
-    //       }
-    //     }).then(function (dbClient) {
-    //       res.json(dbClient);
-    //     });
-    // });
-
-
     app.delete("/api/investors/:id", function(req, res) {
         db.Client.destroy({
           where: {
@@ -58,7 +39,7 @@ module.exports = function (app) {
           res.json(dbinvestors);
         });
       });
-    
+  
 }
 ;
 

@@ -16,20 +16,22 @@ module.exports = function (app) {
         res.render("learn");
     });
 
-    app.get("/results", function (req, res) {
-        var investor_type = "Small Cap";
+    app.get("/results/:id", function (req, res) {
+        var id = req.params.id;
+        console.log(id);
         
-
         //This is the key to assign the value of the results from the survey
 
         //Based on the survey results we will match small cap, mid cap, or large cap investment
 
         db.Investments.findAll({
             where: {
-                growth_rate: investor_type
+                id: id
             }
         }).then(function (response) {
             res.render("results", {product: response});
+
+            
         });
 
     })

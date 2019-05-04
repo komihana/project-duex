@@ -187,6 +187,31 @@ function showNextQuestion(number) {
     $(".surveys").eq(currentSurvey).addClass("show");
 }
 
+function displayResults (investorType) {
+    $.ajax({
+        url: '/results/' + investorType,
+        method: 'GET',
+        data: {
+            growth_type: investorType,
+        }
+    })
+
+}
+
+function updateInvestorType (investorType, id) {
+    $.ajax({
+        url: '/investors/' + id,
+        method: 'PUT',
+        data:  { id: id,
+                investor_type: investorType,
+        }
+    }).then(response => console.log('response ', response))
+
+    console.log("This Works");
+    displayResults(investorType);
+}
+
+
 var submitted = false;
 
 $(".completeSurvey").on("click", function () {
@@ -199,61 +224,19 @@ $(".completeSurvey").on("click", function () {
       sumOfAnswers += scores[i]
     }
     if(sumOfAnswers >= 14 && sumOfAnswers <= 25){
-        investorType = "Large Capital"
+        investorType = "Large-Capital"
     }
     else if(sumOfAnswers >= 26 && sumOfAnswers <= 37){
-        investorType = "Mid Capital"
+        investorType = "Mid-Capital"
     }
     else if(sumOfAnswers >= 28 && sumOfAnswers <= 48){
-        investorType = "Small Capital"
+        investorType = "Small-Capital"
     } else{
         console.log("err")
     }
     console.log(sumOfAnswers);
     // surveyResult();
-     $.ajax({
-         url: '/investors/' + id,
-         method: 'PUT',
-         data: {investor_type: investorType}
-     }).then(response => console.log('respoinse ', response))
+
+    updateInvestorType(investorType, id);
+
 });
-
-
-// function addNewInvestor(newInvestor) {
-//     $.ajax({
-//         method: "PUT",
-//         url: `/api/investors`,
-//         data: newInvestor
-//     }).then(location.reload());
-//     console.log("AJAX: POSTED THAT SHIT > INVESTOR ADDED")
-// }
-
-// var scores = surveyAnswers;
-// var photo = file;
-// var name = fullname;
-// var userData = { name, photo, scores };
-
-// if(submitted == false){
-// // AJAX post the data to the friends API.
-//     $.post("/api/investors", investor_type, function(data) {
-
-//         submitted = true;
-//         console.log(data);
-//         // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-//         $("#match-name").text(data.name);
-//         $("#match-img").css({"background": "url("+data.photo+") center center no-repeat","background-size":"cover"});
-//         $(".search").html(`<a class="button ready" target="_blank" href="https://www.google.com/search?tbm=isch&q=${data.name}">Google your new friend!</a>`)
-
-//         // Show the modal with the best match
-//         $("#results-modal").modal("toggle");
-
-//     });
-// else {
-
-//         $("#results-modal").modal("toggle");
-
-//     }
-
-//     return false;
-
-// });
