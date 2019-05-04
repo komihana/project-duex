@@ -1,4 +1,7 @@
 $(".save-client").click(function(){
+
+
+    
     console.log("SAVE CLICKED!");
     var fname = $(`#firstName`).val(); 
     var lname = $(`#lastName`).val();
@@ -8,6 +11,9 @@ $(".save-client").click(function(){
         first_name: fname,
         last_name: lname,
         email: email
+    }
+    if(fname=="" || lname=="" || email==""){
+        return false;
     }
     addNewInvestor(newInvestor);
 })
